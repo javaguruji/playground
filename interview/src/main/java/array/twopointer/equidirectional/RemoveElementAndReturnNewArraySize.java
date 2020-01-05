@@ -14,7 +14,7 @@ public class RemoveElementAndReturnNewArraySize {
     // As long as nums[j] != val, we copy nums[j] to nums[i] and increment both indexes at the same time.
     // Repeat the process until j reaches the end of the array and the new length is i.
     private static int removeElement(int[] arr, int val) {
-        int temp = 0;
+        int temp = 0; // take separate index
         for (int start = 0; start < arr.length; start++) {
             if (arr[start] != val) {
                 // copy arr[start] to new arr[temp]

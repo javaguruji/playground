@@ -23,7 +23,7 @@ public class SteppingNumber {
             // Stepping Number
             if (prevDigit != -1) {
                 // Check if absolute difference between
-                // prev digit and current digit is 1
+                // prev digit and current digit is not equal 1, then its not a stepping number
                 if (Math.abs(curDigit - prevDigit) != 1)
                     return false;
             }

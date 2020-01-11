@@ -15,6 +15,9 @@ import java.util.Comparator;
  *
  * time complexsity : 0(n)
  * space complexity : 0(n)
+ *
+ *  int[] nums = {3, 30, 34, 5, 9};
+ *  output : 9534330
  */
 public class LargestNumber {
 
@@ -36,7 +39,7 @@ public class LargestNumber {
     private static String largestNumber(int[] nums) {
 
         // 1. convert integer array to string array
-        String str[] = new String[nums.length];
+        String[] str = new String[nums.length];
         for (int i = 0; i < nums.length; i++) {
             str[i] = String.valueOf(nums[i]);
         }

@@ -2,7 +2,8 @@ package matrix;
 
 /**
  * @author badrikant.soni
- * Video : https://www.youtube.com/watch?v=CLvNe-8-6s8
+ * Video : https://www.youtube.com/watch?v=WRxGI8TeckU (Best Explaination)
+ * Vidoe : Another : https://www.youtube.com/watch?v=CLvNe-8-6s8
  */
 public class NumberOfIslands {
 
@@ -14,9 +15,11 @@ public class NumberOfIslands {
         //iterate through every index of the grid
         for(int i = 0; i < grid.length; i++) {
             for(int j = 0; j < grid[i].length; j++) {
-                //attempt to "sink" the current index of the grid
-                numberOfIslands += sink(grid, i, j);
-
+                if(grid[i][j] == '1'){
+                    //attempt to "sink" the current index of the grid
+                    numberOfIslands++;
+                    changeLandToWater(grid, i, j);
+                }
             }
         }
 
@@ -25,7 +28,7 @@ public class NumberOfIslands {
 
     }
 
-    int sink(char[][] grid, int i, int j) {
+    void changeLandToWater(char[][] grid, int i, int j) {
 
         //check the bounds of i and j and if the current index is an island or not (1 or 0)
         // base conditions
@@ -35,20 +38,18 @@ public class NumberOfIslands {
         // 4) column greater than grid[0].length
         // 5) if position is a '0'
         if(i < 0 || i >= grid.length || j < 0 || j >= grid[i].length || grid[i][j] == '0') {
-            return 0;
+            return ;
         }
 
-        //set current index to 0
+        // set current index to 0
         grid[i][j] = '0';
 
         // sink all neighbors of current index
-        sink(grid, i + 1, j); // up
-        sink(grid, i - 1, j); // down
-        sink(grid, i, j + 1); // left
-        sink(grid, i, j - 1); // right
+        changeLandToWater(grid, i + 1, j); // down
+        changeLandToWater(grid, i - 1, j); // up
+        changeLandToWater(grid, i, j + 1); // right
+        changeLandToWater(grid, i, j - 1); // left
 
-        //increment number of islands
-        return 1;
     }
 
     public static void main(String[] args) {

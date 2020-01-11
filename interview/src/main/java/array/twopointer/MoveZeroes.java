@@ -15,12 +15,16 @@ public class MoveZeroes {
     private static void moveZeroes(int[] nums) {
         int first = 0;
         int second = 0;
+
+        // copy non zero item in the array
         for (int i = first; i < nums.length; i++) {
             if (nums[i] != 0) {
                 nums[second] = nums[i];
                 second++;
             }
         }
+
+        // put zero
         for (int i = second; i < nums.length; i++) {
             nums[i] = 0;
         }

@@ -28,6 +28,6 @@ public class ValidParanthesesE {
     public static void main(String[] args) {
 
         ValidParanthesesE validParanthesesE = new ValidParanthesesE();
-        System.out.println(validParanthesesE.isValid("](([]))"));
+        System.out.println(validParanthesesE.isValid("([()])"));
     }
 }

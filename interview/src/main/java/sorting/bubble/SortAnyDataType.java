@@ -7,9 +7,9 @@ package sorting.bubble;
 public class SortAnyDataType {
 
     public static void main(String[] args) {
-/*        Integer[] intArr = {2000, 2000, 456, -10, -10,  0};
+        Integer[] intArr = {2000, 456, -10, -10, 0};
         sortArray(intArr, intArr.length);
-        printArray(intArr, intArr.length);*/
+        printArray(intArr, intArr.length);
 
         String[] strArr = {"We do nothing",
                 "Hi I have something",
@@ -26,11 +26,13 @@ public class SortAnyDataType {
     }
 
     private static <T extends Comparable<? super T>> void sortArray(T[] objectArray, int n) {
+        // boolean variable to check that whether it is sorted or not
         boolean b = true;
         while (b) {
             b = false;
             for (int i = 0; i < n - 1; i++) {
                 if (objectArray[i].compareTo(objectArray[i + 1]) > 0) {
+                    // swapping the variable for sorting order
                     swap(objectArray, i, i + 1);
                     b = true;
                 }

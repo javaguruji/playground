@@ -73,12 +73,12 @@ class BinarySearchTree {
     private Node findNodeInBST(Node root, int data) {
 
         // Base condition
-        if (root == null) {
+/*        if (root == null) {
             return null;
-        }
+        }*/
 
         // condition 1
-        if (data == root.key) {
+        if (null == root || data == root.key) {
             return root;
         }
 
@@ -88,6 +88,28 @@ class BinarySearchTree {
         } else {
             return findNodeInBST(root.right, data);
         }
+    }
+
+
+    // find Hight of tree
+
+    int heightOfBST(){
+        return findHeight(root);
+    }
+
+    int findHeight(Node root){
+        if(root == null){
+            return -1;
+        }
+
+        // give me my left
+        int left = findHeight(root.left);
+
+        // give me my right
+        int right = findHeight(root.right);
+
+        // find max of both left and right with adding 1, because we are returning -1 if null
+        return 1 + Math.max(left, right);
     }
 
     // Driver Program to test above functions
@@ -117,10 +139,8 @@ class BinarySearchTree {
             System.out.println("data found");
         }
 
-        int[] arr = new int[]{50, 30, 20, 40, 70, 60, 80};
-        Arrays.sort(arr);
-
-
+        // find height of BST
+        System.out.println(tree.heightOfBST());
     }
 }
-// This code is contributed by Ankur Narain Verma
+

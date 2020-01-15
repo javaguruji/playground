@@ -21,7 +21,8 @@ public class CreateBST {
 
     public static void main(String[] args) {
 
-        int[] arr = new int[]{99, 35, 19, 0, 11, 40, 5};
+        //int[] arr = new int[]{99, 35, 19, 0, 11, 40, 5};
+        int[] arr = new int[]{30, 20, 50, 40, 60, 70, 80};
         Node root = null;
         Arrays.sort(arr);
         for (int a : arr) {

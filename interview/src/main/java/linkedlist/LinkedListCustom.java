@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.Stack;
+
 /**
  * @author badrikant.soni
  * <p>
@@ -100,13 +102,64 @@ public class LinkedListCustom {
         System.out.print("]");
     }
 
+    private Node reverse(){
+        Node node = reverseLinkedList(head);
+        return node;
+    }
+
+    private void printReverse(Node head) {
+        Node currentNode = head;
+        System.out.print("[");
+        while (currentNode != null) {
+            System.out.print(currentNode.data + ",");
+            currentNode = currentNode.next;
+        }
+        System.out.print("]");
+    }
+
+    private Node reverseLinkedList(Node head){
+
+        if(head == null || head.next == null){
+            return head;
+        }
+        Node newHead = reverseLinkedList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
+    }
+
+    private void reverseLinkedIterative(){
+
+        Node currentNode = head;
+        if(currentNode == null){
+            return;
+        }
+        Stack<Integer> stack = new Stack<Integer>();
+        while(currentNode!= null){
+            stack.push(currentNode.data);
+            currentNode = currentNode.next;
+        }
+
+        head = null;
+        while (!stack.isEmpty()){
+            addElement(stack.pop());
+        }
+    }
+
     public static void main(String[] args) {
         LinkedListCustom linkedListCustom = new LinkedListCustom();
         linkedListCustom.addElement(10);
         linkedListCustom.addElement(20);
         linkedListCustom.addElement(30);
-        linkedListCustom.addElementToFront(11);
-        System.out.println(linkedListCustom.findKthElementFromTheLast(2));
+        linkedListCustom.addElement(40);
+        linkedListCustom.addElement(50);
+        linkedListCustom.print();
+        //System.out.println(linkedListCustom.findKthElementFromTheLast(2));
+        //Node reverse = linkedListCustom.reverse();
+        //System.out.println();
+        //linkedListCustom.printReverse(reverse);
+
+        linkedListCustom.reverseLinkedIterative();
         linkedListCustom.print();
 
     }

@@ -4,12 +4,14 @@ import java.util.Arrays;
 
 /**
  * @author badrikant.soni
+ * Time Complexity : o(nlong)
+ * Space Complexity : o(1)
  */
 public class KthSmallestAndLargestElement {
 
     public static void main(String[] args) {
 
-        Integer[] intArray = new Integer[]{12, 3, 5, 7, 19};
+        Integer[] intArray = new Integer[]{3, 2, 1, 5, 6, 4};
         System.out.println(kthSmallest(intArray, 2));
         System.out.println(kthLargest(intArray, 2));
 

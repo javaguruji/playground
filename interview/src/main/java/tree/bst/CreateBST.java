@@ -1,6 +1,7 @@
 package tree.bst;
 
 import java.util.Arrays;
+import java.util.Stack;
 
 /**
  * @author badrikant.soni
@@ -46,6 +47,8 @@ public class CreateBST {
         System.out.println(searchWithIterative(35, root));
 
         System.out.println(findMaxforN(root, 36));
+
+        postOrderIterative(root);
 
     }
 
@@ -128,6 +131,7 @@ public class CreateBST {
         return -1;
     }
 
+    // recursive function
     private static void inorder(Node root) {
         if (root != null) {
             inorder(root.left);
@@ -135,4 +139,83 @@ public class CreateBST {
             inorder(root.right);
         }
     }
+
+    // recursive function
+    private static void preorder(Node root){
+        if(root!= null){
+            System.out.println(root.data + ",");
+            preorder(root.left);
+            preorder(root.right);
+        }
+    }
+
+    // recursive function
+    private static void postOrder(Node root){
+        if(root!= null){
+            postOrder(root.left);
+            postOrder(root.right);
+            System.out.print(root.data + ",");
+        }
+    }
+
+    // preorder iterative function
+    private static void preorderIterative(Node root){
+
+        if(root == null){
+            return;
+        }
+
+        Stack<Node> stack = new Stack<Node>();
+        stack.push(root);
+
+        while(!stack.isEmpty()){
+
+            Node newNode = stack.peek();
+            System.out.print(newNode.data + ",");
+            stack.pop();
+
+            if(newNode.right != null){
+                stack.push(newNode.right);
+            }
+
+            if(newNode.left !=null){
+                stack.push(newNode.left);
+            }
+
+        }
+    }
+
+    private static void postOrderIterative(Node root)
+    {
+        // Create two stacks
+        Stack<Node> s1 = new Stack<Node>();
+        Stack<Node> s2 = new Stack<Node>();
+
+        if (root == null)
+            return;
+
+        // push root to first stack
+        s1.push(root);
+
+        // Run while first stack is not empty
+        while (!s1.isEmpty()) {
+            // Pop an item from s1 and push it to s2
+            Node temp = s1.pop();
+            s2.push(temp);
+
+            // Push left and right children of
+            // removed item to s1
+            if (temp.left != null)
+                s1.push(temp.left);
+            if (temp.right != null)
+                s1.push(temp.right);
+        }
+
+        // Print all elements of second stack
+        while (!s2.isEmpty()) {
+            Node temp = s2.pop();
+            System.out.print(temp.data + " ");
+        }
+    }
+
 }

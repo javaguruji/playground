@@ -7,7 +7,7 @@ public class ThreadTest {
 
     public static void main(String[] args) {
 
-        System.out.println("I am main thread");
+        System.out.println("I am main concurrency.thread");
 
         RunnableTest runnableTest = new RunnableTest();
         Thread newThread = new Thread(runnableTest);
@@ -20,12 +20,12 @@ public class ThreadTest {
 
 class RunnableTest implements Runnable {
     public void run() {
-        System.out.println("I am runnable test thread");
+        System.out.println("I am runnable test concurrency.thread");
     }
 }
 
 class ThreadExtend extends Thread {
     public void run() {
-        System.out.println("I am thread extend thread");
+        System.out.println("I am concurrency.thread extend concurrency.thread");
     }
 }

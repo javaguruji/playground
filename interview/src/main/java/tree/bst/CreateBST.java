@@ -23,7 +23,8 @@ public class CreateBST {
     public static void main(String[] args) {
 
         //int[] arr = new int[]{99, 35, 19, 0, 11, 40, 5};
-        int[] arr = new int[]{30, 20, 50, 40, 60, 70, 80};
+        //int[] arr = new int[]{30, 20, 50, 40, 60, 70, 80};
+        int[] arr = new int[]{4, 2, 7, 1, 3, 6, 9};
         Node root = null;
         Arrays.sort(arr);
         for (int a : arr) {
@@ -34,6 +35,8 @@ public class CreateBST {
         root = constructBST(arr, start, end, root);
         System.out.println();
         System.out.println("root node data  : " + root.data);
+        inorder(root);
+        invertBinaryTree(root);
         inorder(root);
         Node search = search(30, root);
         System.out.println();
@@ -216,6 +219,21 @@ public class CreateBST {
             Node temp = s2.pop();
             System.out.print(temp.data + " ");
         }
+    }
+
+    private static Node invertBinaryTree(Node root){
+
+        if(root == null){
+            return root;
+        }
+
+        Node left = invertBinaryTree(root.left);
+        Node right = invertBinaryTree(root.right);
+
+        root.right = left;
+        root.left = right;
+
+        return root;
     }
 
 }

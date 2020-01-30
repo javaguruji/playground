@@ -1,4 +1,4 @@
-package concurrency.thread.pc4;
+package thread.thread.pc4;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ExecutorService;

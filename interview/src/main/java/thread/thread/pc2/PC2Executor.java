@@ -1,23 +1,22 @@
-package concurrency.thread.pc3;
-
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.LinkedBlockingDeque;
+package thread.thread.pc2;
 
 /**
  * @author badrikant.soni
  */
-public class PC3BlockingQueue {
+public class PC2Executor {
 
     public static void main(String[] args) throws InterruptedException {
-        BlockingQueue<Integer> blockingQueue = new LinkedBlockingDeque<>(2);
+
+        PC2 pc2 = new PC2(2);
+
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 int value = 0;
                 while (true) {
                     try {
-                        blockingQueue.put(value);
-                        System.out.println("Produced " + value);
+                        pc2.produce(value);
+                        System.out.println("produced : " + value);
                         value++;
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
@@ -31,10 +30,9 @@ public class PC3BlockingQueue {
             @Override
             public void run() {
                 while (true) {
-                    Integer value = null;
                     try {
-                        value = blockingQueue.take();
-                        System.out.println("Consumed : " + value);
+                        int consume = pc2.consume();
+                        System.out.println("consumed : " + consume);
                         Thread.sleep(1000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();

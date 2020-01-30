@@ -1,4 +1,4 @@
-package concurrency.HTTPMonitor;
+package thread.HTTPMonitor;
 
 /**
  * @author badrikant.soni

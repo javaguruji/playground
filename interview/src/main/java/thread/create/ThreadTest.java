@@ -1,4 +1,4 @@
-package concurrency.create;
+package thread.create;
 
 /**
  * @author badrikant.soni

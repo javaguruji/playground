@@ -1,4 +1,4 @@
-package concurrency.thread.pc2;
+package thread.thread.pc2;
 
 import java.util.LinkedList;
 import java.util.Queue;

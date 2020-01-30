@@ -1,4 +1,4 @@
-package concurrency.threadlocal;
+package thread.threadlocal;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package concurrency.thread.questions;
+package thread.thread.questions;
 
 /**
  * @author badrikant.soni

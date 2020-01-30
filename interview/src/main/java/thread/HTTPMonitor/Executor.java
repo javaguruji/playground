@@ -1,4 +1,4 @@
-package concurrency.HTTPMonitor;
+package thread.HTTPMonitor;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

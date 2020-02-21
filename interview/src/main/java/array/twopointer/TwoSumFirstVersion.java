@@ -1,5 +1,6 @@
 package array.twopointer;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class TwoSumFirstVersion {
 
     public static void main(String[] args) {
 
-        int[] nums = {2, 7, 11, 15};
+        int[] nums = {2, 7, 11, 15, 2};
         int target = 9;
         final int[] twoSum = findTwoSum(nums, target);
         for (int a : twoSum) {
@@ -37,6 +38,8 @@ public class TwoSumFirstVersion {
                 // search in map
                 result[0] = map.get(complement);
                 result[1] = i;
+
+                System.out.println(complement + " : " + nums[i]);
             }
         }
         return result;

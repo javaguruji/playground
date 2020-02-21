@@ -9,25 +9,25 @@ public class NumberOfIslands {
 
     public int numIslands(char[][] grid) {
 
-        //initialize number of islands to zero
+        // initialize number of islands to zero
         int numberOfIslands = 0;
 
-        //iterate through every index of the grid
+        // iterate through every index of the grid
         for(int i = 0; i < grid.length; i++) {
             for(int j = 0; j < grid[i].length; j++) {
                 if(grid[i][j] == '1'){
-                    //attempt to "sink" the current index of the grid
                     numberOfIslands++;
                     changeLandToWater(grid, i, j);
                 }
             }
         }
 
-        //return the total number of islands
+        // return the total number of islands
         return numberOfIslands;
 
     }
 
+    // DFS algo
     void changeLandToWater(char[][] grid, int i, int j) {
 
         //check the bounds of i and j and if the current index is an island or not (1 or 0)
@@ -44,7 +44,7 @@ public class NumberOfIslands {
         // set current index to 0
         grid[i][j] = '0';
 
-        // sink all neighbors of current index
+        // change all land to water
         changeLandToWater(grid, i + 1, j); // down
         changeLandToWater(grid, i - 1, j); // up
         changeLandToWater(grid, i, j + 1); // right

@@ -36,7 +36,9 @@ public class CreateBST {
         System.out.println();
         System.out.println("root node data  : " + root.data);
         inorder(root);
+        System.out.println();
         invertBinaryTree(root);
+        System.out.println();
         inorder(root);
         Node search = search(30, root);
         System.out.println();
@@ -63,6 +65,7 @@ public class CreateBST {
 
         // find mid element of array
         int mid = (start + end) / 2;
+        System.out.println("mid : " + mid);
 
         // create root if not present
         if (root == null) {

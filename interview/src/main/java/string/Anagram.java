@@ -26,7 +26,7 @@ public class Anagram {
     public static void main(String[] args) {
 
         String[] words = {"ram", "pot", "mar", "top", "arm"};
-        System.out.println(findAnagram(words));
+        findAnagram(words);
 
     }
 
@@ -39,6 +39,7 @@ public class Anagram {
             char[] chars = word.toCharArray();
             Arrays.sort(chars);
             String sorted = new String(chars);
+            System.out.print(sorted + ",");
 
             // if sorted word is already present in map, then its anagram
             if (map.containsKey(sorted)) {

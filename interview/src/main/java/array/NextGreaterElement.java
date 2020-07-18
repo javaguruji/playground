@@ -1,5 +1,7 @@
 package array;
 
+import java.util.Stack;
+
 /**
  * @author badrikant.soni
  * https://www.geeksforgeeks.org/next-greater-element/
@@ -21,7 +23,8 @@ public class NextGreaterElement {
     public static void main(String[] args) {
 
         int[] arr = {4, 5, 2, 25};
-        nextGreaterElement(arr);
+        //nextGreaterElement(arr);
+        nextGreaterElementUsingStack(arr);
 
     }
 
@@ -42,6 +45,28 @@ public class NextGreaterElement {
                 }
             }
             System.out.println(arr[i] + "--->" + next);
+        }
+    }
+
+    // O(n) complexity
+    private static void nextGreaterElementUsingStack(int[] arr){
+
+        Stack<Integer> stack = new Stack<>();
+        stack.push(arr[0]);
+        for(int i = 1; i < arr.length ; i++){
+            while(!stack.isEmpty()){
+                Integer peek = stack.pop();
+                if(peek < arr[i]){
+                    System.out.println(peek + "--->" + arr[i]);
+                }else{
+                    stack.push(peek);
+                    break;
+                }
+            }
+            stack.push(arr[i]);
+        }
+        while (!stack.isEmpty()){
+            System.out.println(stack.pop()+"--->" + "-1");
         }
     }
 }

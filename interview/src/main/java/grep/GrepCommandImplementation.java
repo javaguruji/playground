@@ -19,12 +19,13 @@ public class GrepCommandImplementation {
 
     public static void main(String[] args) throws IOException {
 
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter the string to match from file");
         Pattern pattern = Pattern.compile(scanner.next());
         Matcher matcher = pattern.matcher("");
         String property = System.getProperty("user.dir");
-        String file = property + "/interview/src/main/java/grep/GrepCommandImplementation.java";
+        String file = property + "/interview/src/main/java/grep/file.txt";
         BufferedReader br = null;
         String line;
         try {
@@ -37,10 +38,17 @@ public class GrepCommandImplementation {
         while ((line = br.readLine()) != null) {
             matcher.reset(line);
             if (matcher.find()) {
-                System.out.println(file + ":" + line);
+                System.out.println(line);
             }
         }
         br.close();
         scanner.close();
+    }
+
+
+    public static void test(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
     }
 }

@@ -17,6 +17,7 @@ public class PC2 {
 
     private Queue<Integer> queue;
     private int size;
+    private Object object = new Object();
 
     PC2(int size) {
         this.queue = new LinkedList<Integer>();
@@ -24,24 +25,23 @@ public class PC2 {
     }
 
     void produce(int value) throws InterruptedException {
-
-        synchronized (this){
+        synchronized (object){
             if (queue.size() == size){
-                wait();
+                object.wait();
             }
             queue.add(value);
-            notify();
+            object.notify();
         }
 
     }
 
     int consume() throws InterruptedException {
-        synchronized (this){
+        synchronized (object){
             if (queue.isEmpty()){
-                wait();
+                object.wait();
             }
             Integer value = queue.poll();
-            notify();
+            object.notify();
             return value;
         }
     }
